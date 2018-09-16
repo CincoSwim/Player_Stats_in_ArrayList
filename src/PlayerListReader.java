@@ -48,11 +48,7 @@ public class PlayerListReader {
                     Fumbles = ParseInt(r.readLine());
                     floatParse = r.readLine();
                     Sacks = Float.parseFloat(floatParse);
-
-                        /*Keep an eye here and at the other constructors.
-                          Worried that by using one variable "newPlayer" that the pointer in the array might just overwrite
-                          Might lead to repeated printouts of last player.
-                        */
+                    
                     newPlayer = new Quarterback(PlayerName, PosName, Weight, Age, PassAttempts, PassCompletes,
                             PassYards, Rushes, RushYards, Touchdowns, Intercepts, Fumbles, Sacks);
                     Players.add(newPlayer);
