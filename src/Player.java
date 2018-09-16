@@ -1,4 +1,13 @@
+/*
+Written by Christopher Pucko
+EECS LDS Project 0
+
+This is the Player class. This constructs an object with a player's name, position, weight, and age.
+ */
+
 public class Player {
+
+
     public String name, position;
     public float weight;
     public int age;

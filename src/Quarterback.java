@@ -1,3 +1,11 @@
+/*
+Written by Christopher Pucko
+EECS LDS Project 0
+
+This is the Quarterback class. It extends the player class to include Quarterback specific stats.
+ */
+
+
 public class Quarterback extends Player {
     public int PassAttempt, PassComplete, PassYards, RushAttempt, RushYards, Touchdowns,
             Intercepts, Fumbles;

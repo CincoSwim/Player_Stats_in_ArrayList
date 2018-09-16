@@ -4,6 +4,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/*
+Written By Christopher Pucko
+EECS Linear Data Structures Project 0
+
+This is the main class for this project. It reads from the included playerlist.txt, stores each player as a
+specific "Player" object by position, then prints the player's stats in a labeled, easy to read list in the console.
+ */
+
 public class PlayerListReader {
     public static void main(String[] args) {
         Player newPlayer;
@@ -22,71 +30,69 @@ public class PlayerListReader {
             System.out.println();
 
 
-            while ((hasNextLine = r.readLine()) != null){
+            while ((hasNextLine = r.readLine()) != null) {
                 PosName = hasNextLine;
                 PlayerName = r.readLine();
                 floatParse = r.readLine();
                 Weight = Float.parseFloat(floatParse);
                 Age = ParseInt(r.readLine());
 
-                    if (PosName.contains("Quarterback")){
-                        PassAttempts = ParseInt(r.readLine());
-                        PassCompletes = ParseInt(r.readLine());
-                        PassYards = ParseInt(r.readLine());
-                        Rushes = ParseInt(r.readLine());
-                        RushYards = ParseInt(r.readLine());
-                        Touchdowns = ParseInt(r.readLine());
-                        Intercepts = ParseInt(r.readLine());
-                        Fumbles = ParseInt(r.readLine());
-                        floatParse = r.readLine();
-                        Sacks = Float.parseFloat(floatParse);
+                if (PosName.contains("Quarterback")) {
+                    PassAttempts = ParseInt(r.readLine());
+                    PassCompletes = ParseInt(r.readLine());
+                    PassYards = ParseInt(r.readLine());
+                    Rushes = ParseInt(r.readLine());
+                    RushYards = ParseInt(r.readLine());
+                    Touchdowns = ParseInt(r.readLine());
+                    Intercepts = ParseInt(r.readLine());
+                    Fumbles = ParseInt(r.readLine());
+                    floatParse = r.readLine();
+                    Sacks = Float.parseFloat(floatParse);
 
                         /*Keep an eye here and at the other constructors.
                           Worried that by using one variable "newPlayer" that the pointer in the array might just overwrite
                           Might lead to repeated printouts of last player.
                         */
-                        newPlayer = new Quarterback(PlayerName, PosName, Weight, Age, PassAttempts, PassCompletes,
-                                PassYards, Rushes, RushYards, Touchdowns, Intercepts, Fumbles, Sacks);
-                        Players.add(newPlayer);
-                        ElementsLoaded++;
+                    newPlayer = new Quarterback(PlayerName, PosName, Weight, Age, PassAttempts, PassCompletes,
+                            PassYards, Rushes, RushYards, Touchdowns, Intercepts, Fumbles, Sacks);
+                    Players.add(newPlayer);
+                    ElementsLoaded++;
 
-                    }
-                    else if (PosName.contains("Defense")){
-                        Tackles = ParseInt(r.readLine());
-                        floatParse = r.readLine();
-                        Sacks = Float.parseFloat(floatParse);
-                        Intercepts = ParseInt(r.readLine());
+                } else if (PosName.contains("Defense")) {
+                    Tackles = ParseInt(r.readLine());
+                    floatParse = r.readLine();
+                    Sacks = Float.parseFloat(floatParse);
+                    Intercepts = ParseInt(r.readLine());
 
-                        newPlayer = new Defense(PlayerName, PosName, Weight, Age, Sacks, Tackles, Intercepts);
+                    newPlayer = new Defense(PlayerName, PosName, Weight, Age, Sacks, Tackles, Intercepts);
 
-                        Players.add(newPlayer);
-                        ElementsLoaded++;
-                    }
-                    else if (PosName.contains("Receiver")){
-                        Recepts = ParseInt(r.readLine());
-                        ReceptYards = ParseInt(r.readLine());
-                        Rushes = ParseInt(r.readLine());
-                        RushYards= ParseInt(r.readLine());
-                        Touchdowns = ParseInt(r.readLine());
-                        Fumbles = ParseInt(r.readLine());
+                    Players.add(newPlayer);
+                    ElementsLoaded++;
+                } else if (PosName.contains("Receiver")) {
+                    Recepts = ParseInt(r.readLine());
+                    ReceptYards = ParseInt(r.readLine());
+                    Rushes = ParseInt(r.readLine());
+                    RushYards = ParseInt(r.readLine());
+                    Touchdowns = ParseInt(r.readLine());
+                    Fumbles = ParseInt(r.readLine());
 
-                        newPlayer = new Reciever(PlayerName ,PosName, Weight, Age, Recepts, ReceptYards, Rushes,
-                                RushYards, Touchdowns, Fumbles);
+                    newPlayer = new Reciever(PlayerName, PosName, Weight, Age, Recepts, ReceptYards, Rushes,
+                            RushYards, Touchdowns, Fumbles);
 
-                        Players.add(newPlayer);
-                        ElementsLoaded++;
-                    }
+                    Players.add(newPlayer);
+                    ElementsLoaded++;
+                }
 
             }
-        for(i = 0; i< ElementsLoaded; i++){
-            Player writingPlayer = Players.get(i);
+            for (i = 0; i < ElementsLoaded; i++) {
+                Player writingPlayer = Players.get(i);
 
-            System.out.println(writingPlayer.getName());
-            System.out.println("Age: " + writingPlayer.getAge());
-            System.out.println(writingPlayer.getPosition());
-            System.out.println("Weight: " + writingPlayer.getWeight());
+                System.out.println(writingPlayer.getName());
+                System.out.println("Age: " + writingPlayer.getAge());
+                System.out.println(writingPlayer.getPosition());
+                System.out.println("Weight: " + writingPlayer.getWeight());
 
-                if (writingPlayer.getPosition().contains("Quarterback")){
+                if (writingPlayer.getPosition().contains("Quarterback")) {
                     Quarterback player = (Quarterback) writingPlayer;
 
                     System.out.println("Pass Attempts: " + player.getPassAttempt());
@@ -100,7 +106,7 @@ public class PlayerListReader {
                     System.out.println("Sacks: " + player.getSacks());
                     System.out.println();
 
-                }else if (writingPlayer.getPosition().contains("Defense")){
+                } else if (writingPlayer.getPosition().contains("Defense")) {
                     Defense player = (Defense) writingPlayer;
 
                     System.out.println("Tackles: " + player.getTackles());
@@ -108,7 +114,7 @@ public class PlayerListReader {
                     System.out.println("Interceptions: " + player.getIntercepts());
                     System.out.println();
 
-                }else if (writingPlayer.getPosition().contains("Receiver")){
+                } else if (writingPlayer.getPosition().contains("Receiver")) {
                     Reciever player = (Reciever) writingPlayer;
                     System.out.println("Receptions: " + player.getReceptions());
                     System.out.println("Reception Yards: " + player.getReceptionYards());
@@ -120,16 +126,15 @@ public class PlayerListReader {
                 }
 
 
-
-
-        }
+            }
 
 
         } catch (IOException e) {
             System.out.println("File Exception");
         }
     }
-    public static int ParseInt(String r){
+
+    public static int ParseInt(String r) {
         int returnValue;
 
         returnValue = Integer.parseInt(r);

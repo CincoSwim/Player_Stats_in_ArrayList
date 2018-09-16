@@ -1,3 +1,10 @@
+/*
+Written by Christopher Pucko
+EECS LDS Project 0
+
+This is the Defense Class. It extends the player class to include defense-specific stats.
+ */
+
 public class Defense extends Player{
     public int Tackles, Intercepts;
     public float Sacks;

@@ -1,3 +1,11 @@
+/*
+Written by Christopher Pucko
+EECS LDS Project 0
+
+
+This is the Reciever Class. It extends the Player class to include receiver specific stats.
+ */
+
 public class Reciever extends Player {
     public int Receptions, ReceptionYards, Rushes, RushingYards, Touchdowns,
                Interceptions, Fumbles, Sacks;
