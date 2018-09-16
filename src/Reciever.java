@@ -3,17 +3,16 @@ public class Reciever extends Player {
                Interceptions, Fumbles, Sacks;
 
     public Reciever(String name, String position, float weight, int age, int receptions,
-                    int receptionYards, int rushes, int rushingYards, int touchdowns,
-                    int interceptions, int fumbles, int sacks) {
+                    int receptionYards, int rushes, int rushingYards, int touchdowns, int fumbles) {
         super(name, position, weight, age);
         this.Receptions = receptions;
         this.ReceptionYards = receptionYards;
         this.Rushes = rushes;
         this.RushingYards = rushingYards;
         this.Touchdowns = touchdowns;
-        this.Interceptions = interceptions;
+
         this.Fumbles = fumbles;
-        this.Sacks = sacks;
+
     }
 
     public int getReceptions() {
